@@ -1,0 +1,10 @@
+services:
+  engineering-calculator-web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: engineering-calculator-web:latest
+    container_name: engineering-calculator-web
+    ports:
+      - "8501:8501"
+    restart: unless-stopped
