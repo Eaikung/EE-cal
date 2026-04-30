@@ -1,17 +1,25 @@
-# EE-cal — Electrical Engineering Calculator
+# EE-cal — Engineering Calculator
 
-A simple Streamlit web app that solves common electrical-engineering formulas.
-Pick a formula, fill in known values, leave **exactly one** field blank, then
-click **Solve missing variable**.
+A Streamlit web app that solves the formulas an electrical-engineering student
+meets across the curriculum. Pick a category, choose a formula, fill in the
+values you know, leave **exactly one** field blank, then click **Solve**.
 
-The library covers Year 1 → Year 4 topics, including:
+**70+ formulas across 11 categories**, organised by topic so you can find
+what you need fast:
 
-- Ohm's law, electrical power, capacitor charge, energy
-- Inductive / capacitive reactance, resonance
-- Series & parallel resistance, voltage divider, transformer ratio
-- Three-phase power, synchronous speed, amplifier gain
-- Series RLC impedance, RL / RC time constants
-- Battery runtime, load resistance & current
+| Category | Examples |
+| --- | --- |
+| **Mathematics** | Pythagorean theorem, polar magnitude, log/ln |
+| **Mechanics** | F=ma, kinetic & potential energy, momentum, pressure |
+| **Heat & Thermodynamics** | Q=mcΔT, latent heat, ideal gas law, expansion |
+| **DC Circuits** | Ohm's law, power dissipation (I²R / V²/R), dividers |
+| **AC Circuits** | Reactance, RLC impedance, RMS↔peak, phase angle, P/Q/S |
+| **Electromagnetics** | Magnetic flux, F=BIL, F=qvB, stored energy, Faraday |
+| **Power Systems** | 3-phase, transformer turns, per-unit, voltage regulation |
+| **Electronics** | Op-amp gains (inverting / non-inverting), LED resistor |
+| **Control Systems** | RC / RL τ, settling time, first-order bandwidth |
+| **Signals & Communications** | λ=c/f, dB (P&V), Shannon, Nyquist, ¼-wave antenna |
+| **Digital Systems** | Bits ↔ levels, bytes, bit time |
 
 ## 🌐 Live demo
 
