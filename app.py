@@ -18,6 +18,11 @@ SPEED_OF_LIGHT = 299_792_458.0  # m/s
 GRAVITY = 9.80665  # m/s²
 GAS_CONSTANT = 8.314462618  # J/(mol·K)
 
+# Imperial / SI length (common engineering tables)
+IN_TO_M = 0.0254  # 1 in (definition)
+FT_TO_M = 0.3048  # 1 ft = 12 in
+MI_TO_M = 1609.0  # 1 mi ≈ 1609 m ≈ 1.609 km (table rounding; intl. mile is 1609.344 m)
+
 
 # --- Categories shown in the order students typically encounter them --------
 
@@ -177,6 +182,62 @@ FORMULAS: dict[str, dict] = {
         "solve": {
             "y": lambda d: _ln(d["x"]),
             "x": lambda d: math.exp(d["y"]),
+        },
+    },
+    "Length: mile, meter, kilometer (1 mi ≈ 1609 m)": {
+        "category": "Mathematics",
+        "year": "Year 1",
+        "variables": [
+            ("Miles", "mi"),
+            ("Meters m", "m"),
+            ("Kilometers km", "km"),
+        ],
+        "solve": {
+            "mi": lambda d: d["m"] / MI_TO_M if "m" in d else d["km"] * 1000.0 / MI_TO_M,
+            "m": lambda d: d["mi"] * MI_TO_M if "mi" in d else d["km"] * 1000.0,
+            "km": lambda d: d["m"] / 1000.0 if "m" in d else d["mi"] * MI_TO_M / 1000.0,
+        },
+    },
+    "Length: foot, meter, centimeter (1 ft = 0.3048 m)": {
+        "category": "Mathematics",
+        "year": "Year 1",
+        "variables": [
+            ("Feet ft", "ft"),
+            ("Meters m", "m"),
+            ("Centimeters cm", "cm"),
+        ],
+        "solve": {
+            "ft": lambda d: d["m"] / FT_TO_M if "m" in d else d["cm"] / (100.0 * FT_TO_M),
+            "m": lambda d: d["ft"] * FT_TO_M if "ft" in d else d["cm"] / 100.0,
+            "cm": lambda d: d["m"] * 100.0 if "m" in d else d["ft"] * FT_TO_M * 100.0,
+        },
+    },
+    "Length: meter, inch, foot (1 m ≈ 39.37 in ≈ 3.281 ft)": {
+        "category": "Mathematics",
+        "year": "Year 1",
+        "variables": [
+            ("Meters m", "m"),
+            ("Inches", "inch"),
+            ("Feet ft", "ft"),
+        ],
+        "solve": {
+            "m": lambda d: d["inch"] * IN_TO_M if "inch" in d else d["ft"] * FT_TO_M,
+            "inch": lambda d: d["m"] / IN_TO_M if "m" in d else d["ft"] * FT_TO_M / IN_TO_M,
+            "ft": lambda d: d["m"] / FT_TO_M if "m" in d else d["inch"] * IN_TO_M / FT_TO_M,
+        },
+    },
+    "Length: inch, meter, centimeter (1 in = 0.0254 m = 2.54 cm)": {
+        "category": "Mathematics",
+        "year": "Year 1",
+        "variables": [
+            ("Inches", "inch"),
+            ("Meters m", "m"),
+            ("Centimeters cm", "cm"),
+        ],
+        "solve": {
+            "inch": lambda d: d["m"] / IN_TO_M if "m" in d else d["cm"] / (100.0 * IN_TO_M),
+            "m": lambda d: d["inch"] * IN_TO_M if "inch" in d else d["cm"] / 100.0,
+            "cm": lambda d: d["m"] * 100.0 if "m" in d else d["inch"] * IN_TO_M * 100.0,
         },
     },
     # ============================================================
